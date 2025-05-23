@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego - Camino a la Equidad</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <!-- Pantalla principal del juego -->
+        <div id="pantalla-juego" class="tarjeta">
+            <div class="encabezado-tarjeta">
+                <div class="insignias">
+                    <span id="insignia-escenario" class="insignia">Escenario 1/6</span>
+                    <span id="insignia-situacion" class="insignia">Situación 1/3</span>
+                </div>
+                <h1 id="titulo-escenario" class="titulo-tarjeta">Cargando escenario...</h1>
+                <p id="descripcion-escenario" class="descripcion-tarjeta">Descripción del escenario</p>
+            </div>
+            
+            <div class="contenido-tarjeta">
+                <!-- Barras de progreso -->
+                <div class="contenedor-progreso">
+                    <div class="elemento-progreso">
+                        <div class="encabezado-progreso">
+                            <span class="texto-equidad">Índice de Equidad</span>
+                            <span id="valor-equidad">15%</span>
+                        </div>
+                        <div class="barra-progreso">
+                            <div id="progreso-equidad" class="indicador-progreso equidad" style="width: 15%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="elemento-progreso">
+                        <div class="encabezado-progreso">
+                            <span class="texto-reputacion">Reputación Social</span>
+                            <span id="valor-reputacion">15%</span>
+                        </div>
+                        <div class="barra-progreso">
+                            <div id="progreso-reputacion" class="indicador-progreso reputacion" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Situación actual -->
+                <div class="caja-situacion">
+                    <h3>Situación:</h3>
+                    <p id="descripcion-situacion">Cargando situación...</p>
+                </div>
+            </div>
+            
+            <div class="pie-tarjeta">
+                <h3>¿Qué decides hacer?</h3>
+                <div id="contenedor-decisiones" class="contenedor-decisiones">
+                    <!-- Las decisiones se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pantalla de explicación (inicialmente oculta) -->
+        <div id="pantalla-explicacion" class="tarjeta oculto">
+            <div class="encabezado-tarjeta">
+                <h1 class="titulo-tarjeta">Impacto de tu Decisión</h1>
+            </div>
+            
+            <div class="contenido-tarjeta">
+                <div class="alerta">
+                    <div class="icono-alerta">👍</div>
+                    <div class="contenido-alerta">
+                        <h3>Consecuencias</h3>
+                        <p id="texto-explicacion">Explicación de la decisión</p>
+                    </div>
+                </div>
+                
+                <div class="contenedor-impactos">
+                    <div class="elemento-impacto">
+                        <span class="texto-equidad">Índice de Equidad:</span>
+                        <span id="impacto-equidad" class="valor-impacto">+0</span>
+                    </div>
+                    <div class="elemento-impacto">
+                        <span class="texto-reputacion">Reputación Social:</span>
+                        <span id="impacto-reputacion" class="valor-impacto">+0</span>
+                    </div>
+                </div>
+                
+                <!-- Nueva sección de datos de investigación -->
+                <div id="contenedor-datos-investigacion" class="datos-investigacion">
+                    <div class="icono-investigacion">📊</div>
+                    <div class="contenido-investigacion">
+                        <h3 id="titulo-investigacion">Datos de Investigación</h3>
+                        <p id="contenido-investigacion">Información estadística relacionada</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pie-tarjeta">
+                <button id="boton-continuar" class="boton primario">Continuar</button>
+            </div>
+        </div>
+        
+        <!-- Pantalla de resultado final (inicialmente oculta) -->
+        <div id="pantalla-resultado" class="tarjeta oculto">
+            <div class="encabezado-tarjeta centrado">
+                <h1 class="titulo-tarjeta">Resultado Final</h1>
+                <p class="descripcion-tarjeta">Tu camino te ha llevado a ser:</p>
+                <div class="contenedor-insignia-resultado">
+                    <span id="insignia-resultado" class="insignia-resultado">Resultado</span>
+                </div>
+            </div>
+            
+            <div class="contenido-tarjeta">
+                <p id="descripcion-resultado" class="centrado">Descripción del resultado</p>
+                
+                <div class="contenedor-progreso">
+                    <div class="elemento-progreso">
+                        <div class="encabezado-progreso">
+                            <span class="texto-equidad">Índice de Equidad</span>
+                            <span id="valor-equidad-final">15%</span>
+                        </div>
+                        <div class="barra-progreso">
+                            <div id="progreso-equidad-final" class="indicador-progreso equidad" style="width: 15%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="elemento-progreso">
+                        <div class="encabezado-progreso">
+                            <span class="texto-reputacion">Reputación Social</span>
+                            <span id="valor-reputacion-final">15%</span>
+                        </div>
+                        <div class="barra-progreso">
+                            <div id="progreso-reputacion-final" class="indicador-progreso reputacion" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="centrado mt-20">
+                    <p>
+                        Recuerda que en la vida real, cada decisión que tomamos puede tener un impacto 
+                        significativo en la construcción de una sociedad más justa y equitativa.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="pie-tarjeta">
+                <button id="boton-jugar-nuevo" class="boton primario">Jugar de Nuevo</button>
+                <a href="index.html" class="boton contorno">Volver al Inicio</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/datos-juego.js"></script>
+    <script src="js/juego.js"></script>
+</body>
+</html>
